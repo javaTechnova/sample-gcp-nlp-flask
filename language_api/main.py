@@ -59,8 +59,12 @@ def analyseEntity():
     entity = datastore.Entity(key)
     entity["text"] = text
     entity["timestamp"] = current_datetime
+<<<<<<< HEAD
     entity["entities"] = json.dumps(output, indent = 4)
     entity["excludeFromIndexes"] = ["entities"] 
+=======
+    entity["entities"] = output
+>>>>>>> 6dec07970c144a59dc58ea8910882873c43da09e
 
 
     # Save the new entity to Datastore.
