@@ -14,11 +14,11 @@
             <input type="submit" name="submit" value="Submit">
            </form>
          </td>
-        <td>
+       
             {% for text_entity in text_sentiments %}
-            <pre id="json">Text: {{text_entity['text']}}</pre>
-              <p>Uploaded: {{text_entity['timestamp']}}</p>
-             <pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre>
+             <td><pre id="json">Text: {{text_entity['text']}}</pre></td>
+             <td> <p>Uploaded: {{text_entity['timestamp']}}</p></td>
+             <td><pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre></td>
             {% endfor %}
         </td> 
       </tr>
@@ -33,9 +33,9 @@
         </td>  
       <td>
         {% for text_entity in text_entities %}
-          <pre id="json">Text: {{text_entity['text']}}</pre>
-          <p>Uploaded: {{text_entity['timestamp']}}</p>
-         <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre>
+          <td><pre id="json">Text: {{text_entity['text']}}</pre></td>
+          <td><p>Uploaded: {{text_entity['timestamp']}}</p></td>
+        <td> <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre></td>
         {% endfor %}
     </td>
 </tr>
