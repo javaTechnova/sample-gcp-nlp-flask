@@ -16,7 +16,7 @@
          </td>
        
             {% for text_entity in text_sentiments %}
-             <td><pre id="json">Text: {{text_entity['text']}}</pre></td>
+             <td style="vertical-align:top"><pre id="json">Text: {{text_entity['text']}}</pre></td>
            <!--  <td> <p>Uploaded: {{text_entity['timestamp']}}</p></td> --> 
              <td style="vertical-align:top"><pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre></td>
             {% endfor %}
