@@ -7,13 +7,22 @@
 <html>
   <body>
     <form action="analyseEntity" method="POST" enctype="multipart/form-data">
-      Upload Text: <input type="text" name="text"><br>
+      Upload Text for Entity Analysis: <input type="text" name="text"><br>
       <input type="submit" name="submit" value="Submit">
     </form>
     {% for text_entity in text_entities %}
       <pre id="json">Text: {{text_entity['text']}}</pre>
       <p>Uploaded: {{text_entity['timestamp']}}</p>
      <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre>
+    {% endfor %}
+    <form action="upload" method="POST" enctype="multipart/form-data">
+      Upload Text for Sentiment Analysis: <input type="text" name="text"><br>
+      <input type="submit" name="submit" value="Submit">
+     </form>
+   {% for text_entity in text_sentiments %}
+      <pre id="json">Text: {{text_entity['text']}}</pre>
+      <p>Uploaded: {{text_entity['timestamp']}}</p>
+     <pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre>
     {% endfor %}
   </body>
 </html> 

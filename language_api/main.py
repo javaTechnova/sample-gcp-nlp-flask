@@ -23,10 +23,14 @@ def homepage():
     # Query looks for all documents of the 'Sentences' kind, which is how we
     # store them in upload_text()
     query = datastore_client.query(kind="Entities")
-    text_entities = list(query.fetch())
+    text_entities_entities = list(query.fetch())
+
+
+    query1 = datastore_client.query(kind="Sentences")
+    text_entities_sentiment = list(query1.fetch())        
 
     # # Return a Jinja2 HTML template and pass in text_entities as a parameter.
-    return render_template("homepage.html", text_entities=text_entities)
+    return render_template("homepage.html", text_entities=text_entities_entities, text_sentiments=text_entities_sentiment)
 
 
 @app.route("/analyseEntity", methods=["GET", "POST"])
