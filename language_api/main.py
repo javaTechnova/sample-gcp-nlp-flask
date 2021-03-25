@@ -51,6 +51,7 @@ def analyseEntity():
 
     print(json.dumps(output,indent = 4))
 
+
     # Alternative to above, the following would store a history of all previous requests as no key
     # identifier is specified, only a 'kind'. Datastore automatically provisions numeric ids.
     # key = datastore_client.key(kind)
@@ -59,12 +60,7 @@ def analyseEntity():
     entity = datastore.Entity(key)
     entity["text"] = text
     entity["timestamp"] = current_datetime
-<<<<<<< HEAD
-    entity["entities"] = json.dumps(output, indent = 4)
-    entity["excludeFromIndexes"] = ["entities"] 
-=======
     entity["entities"] = output
->>>>>>> 6dec07970c144a59dc58ea8910882873c43da09e
 
 
     # Save the new entity to Datastore.
@@ -177,6 +173,7 @@ def gcp_analyze_entities(text, debug=0):
         item["name"]=entity.name
         item["type"]=language.Entity.Type(entity.type_).name
         item["Salience"]=entity.salience
+        item["excludeFromIndexes"]= ['name','type','salience']
         
         if debug:
             print(u"Representative name for the entity: {}".format(entity.name))
