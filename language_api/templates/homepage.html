@@ -17,7 +17,7 @@
        
             {% for text_entity in text_sentiments %}
              <td><pre id="json">Text: {{text_entity['text']}}</pre></td>
-             <td> <p>Uploaded: {{text_entity['timestamp']}}</p></td> 
+           <!--  <td> <p>Uploaded: {{text_entity['timestamp']}}</p></td> --> 
              <td style="vertical-align:top"><pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre></td>
             {% endfor %}
         </td> 
@@ -34,7 +34,7 @@
       <td style="vertical-align:top">
         {% for text_entity in text_entities %}
           <td style="vertical-align:top; word-break:break-all;">Text: {{text_entity['text']}}</td>
-          <td><p>Uploaded: {{text_entity['timestamp']}}</p></td>
+         <!-- <td><p>Uploaded: {{text_entity['timestamp']}}</p></td> -->
         <td style="vertical-align:top"> <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre></td>
         {% endfor %}
     </td>
