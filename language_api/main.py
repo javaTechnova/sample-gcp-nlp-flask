@@ -148,13 +148,6 @@ def analyze_text_sentiment(text):
 
     return sentence_sentiment
 
-
-if __name__ == "__main__":
-    # This is used when running locally. Gunicorn is used to run the
-    # application on Google App Engine. See entrypoint in app.yaml.
-    app.run(host="127.0.0.1", port=8080, debug=True)
-
-
 def gcp_analyze_entities(text, debug=0):
     """
     Analyzing Entities in a String
@@ -211,3 +204,9 @@ def gcp_analyze_entities(text, debug=0):
         print(u"Language of the text: {}".format(response.language))
     
     return(output)
+
+
+if __name__ == "__main__":
+    # This is used when running locally. Gunicorn is used to run the
+    # application on Google App Engine. See entrypoint in app.yaml.
+    app.run(host="127.0.0.1", port=8080, debug=True)
