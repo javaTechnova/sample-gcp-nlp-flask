@@ -59,11 +59,14 @@ def analyseEntity():
     entity["timestamp"] = current_datetime
     entity["entities"] = json.dumps(output, indent = 4)
 
+
     # Save the new entity to Datastore.
-    datastore_client.put(entity)
+   # datastore_client.put(entity)
 
     # Redirect to the home page.
-    return redirect("/")
+    
+    #return redirect("/")
+    return json.dumps(output, indent = 4)
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload_text():
