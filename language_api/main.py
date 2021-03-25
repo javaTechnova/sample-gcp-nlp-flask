@@ -34,7 +34,7 @@ def analyseEntity():
     text = request.form["text"]
 
     # Analyse sentiment using Sentiment API call
-    ouptut = gcp_analyze_entities(text)
+    ouptut = gcp_analyze_entities(text,0)
 
     
     # Create a Cloud Datastore client.
