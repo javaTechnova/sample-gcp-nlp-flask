@@ -34,7 +34,7 @@ def analyseEntity():
     text = request.form["text"]
 
     # Analyse sentiment using Sentiment API call
-    ouptut = gcp_analyze_entities(text,0)
+    output = gcp_analyze_entities(text,0)
 
     
     # Create a Cloud Datastore client.
@@ -49,6 +49,8 @@ def analyseEntity():
     # Create the Cloud Datastore key for the new entity.
     key = datastore_client.key(kind, 'sample_task')
 
+    print(json.dumps(output,indent = 4))
+
     # Alternative to above, the following would store a history of all previous requests as no key
     # identifier is specified, only a 'kind'. Datastore automatically provisions numeric ids.
     # key = datastore_client.key(kind)
@@ -58,6 +60,7 @@ def analyseEntity():
     entity["text"] = text
     entity["timestamp"] = current_datetime
     entity["entities"] = json.dumps(output, indent = 4)
+    entity["excludeFromIndexes"] = ["entities"] 
 
     # Save the new entity to Datastore.
     datastore_client.put(entity)
