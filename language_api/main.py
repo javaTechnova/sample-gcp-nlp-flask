@@ -215,6 +215,12 @@ def gcp_analyze_entities(text, debug=0):
     
     return(output)
 
+def to_pretty_json(value):
+    return json.dumps(value, sort_keys=True,
+                      indent=4, separators=(',', ': '))
+
+app.jinja_env.filters['tojson_pretty'] = to_pretty_json    
+
 
 if __name__ == "__main__":
     # This is used when running locally. Gunicorn is used to run the
