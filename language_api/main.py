@@ -64,12 +64,12 @@ def analyseEntity():
 
 
     # Save the new entity to Datastore.
-   # datastore_client.put(entity)
+    datastore_client.put(entity)
 
     # Redirect to the home page.
     
-    #return redirect("/")
-    return json.dumps(output, indent = 4)
+    return redirect("/")
+   
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload_text():
