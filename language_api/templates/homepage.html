@@ -11,9 +11,9 @@
       <input type="submit" name="submit" value="Submit">
     </form>
     {% for text_entity in text_entities %}
-      <p>Text: {{text_entity['text']}}</p>
+      <pre id="json">Text: {{text_entity['text']}}</pre>
       <p>Uploaded: {{text_entity['timestamp']}}</p>
-      <p>Overall Sentiment: {{text_entity['entities']|tojson_pretty|safe }}</p>
+      <pre id="json">Overall Sentiment: {{text_entity['entities']|tojson_pretty|safe }}</pre>
     {% endfor %}
   </body>
 </html> 
