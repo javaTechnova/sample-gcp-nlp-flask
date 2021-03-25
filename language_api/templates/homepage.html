@@ -33,7 +33,7 @@
         </td>  
       <td style="vertical-align:top">
         {% for text_entity in text_entities %}
-          <td "word-break:break-all;"">Text: {{text_entity['text']}}</td>
+          <td style="vertical-align:top; word-break:break-all;">Text: {{text_entity['text']}}</td>
           <td><p>Uploaded: {{text_entity['timestamp']}}</p></td>
         <td style="vertical-align:top"> <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre></td>
         {% endfor %}
