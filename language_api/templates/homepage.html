@@ -5,10 +5,20 @@
 <br>
 
 <html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  vertical-align:top; 
+  width: 150px;
+  word-break:break-all;
+}
+</style>
+</head>
   <body>
     <table>
       <tr>
-        <td style="vertical-align:top">
+        <td>
             <form action="upload" method="POST" enctype="multipart/form-data">
             Upload Text for Sentiment Analysis: <input type="text" name="text"><br>
             <input type="submit" name="submit" value="Submit">
@@ -16,26 +26,26 @@
          </td>
        
             {% for text_entity in text_sentiments %}
-             <td style="vertical-align:top; width: 150px;"><pre id="json">Text: {{text_entity['text']}}</pre></td>
+             <td><pre id="json">Text: {{text_entity['text']}}</pre></td>
            <!--  <td> <p>Uploaded: {{text_entity['timestamp']}}</p></td> --> 
-             <td style="vertical-align:top; width: 150px;"><pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre></td>
+             <td><pre id="json">Overall Sentiment Analysis: {{text_entity['sentiment']|tojson_pretty|safe }}</pre></td>
             {% endfor %}
         </td> 
       </tr>
        </table>
        <table>
       <tr>
-        <td style="vertical-align:top">
+        <td>
             <form action="analyseEntity" method="POST" enctype="multipart/form-data">
               Upload Text for Entity Analysis: <input type="text" name="text"><br>
                 <input type="submit" name="submit" value="Submit">
             </form>      
         </td>  
-      <td style="vertical-align:top">
+      <td>
         {% for text_entity in text_entities %}
-          <td style="vertical-align:top; word-break:break-all; width: 150px;">Text: {{text_entity['text']}}</td>
+          <td>Text: {{text_entity['text']}}</td>
          <!-- <td><p>Uploaded: {{text_entity['timestamp']}}</p></td> -->
-        <td style="vertical-align:top"> <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre></td>
+        <td> <pre id="json">Overall Entity Analysis: {{text_entity['entities']|tojson_pretty|safe }}</pre></td>
         {% endfor %}
     </td>
 </tr>
