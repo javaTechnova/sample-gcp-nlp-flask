@@ -57,7 +57,7 @@ def analyseEntity():
     entity = datastore.Entity(key)
     entity["text"] = text
     entity["timestamp"] = current_datetime
-    entity["entities"] = json.dumps(output, indent = 4)
+    entity["entities"] = output
 
 
     # Save the new entity to Datastore.
